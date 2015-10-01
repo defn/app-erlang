@@ -4,18 +4,9 @@ function bootstrap {
   local shome="$(unset CDPATH; cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
-  local url_erlang='http://packages.erlang-solutions.com/site/esl/esl-erlang/FLAVOUR_1_general/esl-erlang_18.0-1~osx~10.10_amd64.dmg'
-
-  case "$(uname -s)" in
-    Darwin)
-     local tmp_erlang="$(mktemp -t XXXXXX)"
-     trap "$(printf "rm -f '%q'" "$tmp_erlang")" EXIT
-     curl -L -o "$tmp_erlang" "$url_erlang"
-     hdiutil attach "$tmp_erlang"
-     trap "$(printf "rm -f '%q'; hdiutil detach /Volumes/Erlang" "$tmp_erlang")" EXIT
-     sudo installer -package "/Volumes/Erlang/EslErlang 18.0-1.pkg" -target "/Volumes/Macintosh HD"
-     ;;
-  esac
+  app compile dmg \
+    'http://packages.erlang-solutions.com/site/esl/esl-erlang/FLAVOUR_1_general/esl-erlang_18.0-1~osx~10.10_amd64.dmg' \
+    'Erlang' 'EslErlang 18.0-1.pkg'
 }
 
 bootstrap
