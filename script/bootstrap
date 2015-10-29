@@ -11,8 +11,8 @@ function bootstrap {
         'Erlang' 'EslErlang 18.0-1.pkg'
       ;;
     Linux)
-      echo deb http://binaries.erlang-solutions.com/debian trusty contrib | sudo tee /etc/apt/sources.list.d/erlang.list
-      curl -s http://binaries.erlang-solutions.com/debian/erlang_solutions.asc | sudo apt-key add -
+      echo deb http://packages.erlang-solutions.com/debian trusty contrib | sudo tee /etc/apt/sources.list.d/erlang.list
+      curl -L -s http://packages.erlang-solutions.com/debian/erlang_solutions.asc | sudo apt-key add -
       sudo aptitude update
       sudo aptitude install -y esl-erlang
       ;;
