@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
+source "$APP_PATH/app/script/profile"
+
 function profile {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   PATH="$shome/bin:$shome/exec:$PATH"
+  require
 }
 
 profile
