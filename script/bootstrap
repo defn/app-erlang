@@ -8,3 +8,17 @@ function bootstrap {
 }
 
 bootstrap
+
+# https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_2_esl/esl-erlang_18.2-1~osx~10.10_amd64.dmg
+# https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_2_esl/esl-erlang_18.2-2~ubuntu~precise_amd64.deb
+# 
+# deb https://packages.erlang-solutions.com/ubuntu trusty contrib
+# deb https://packages.erlang-solutions.com/ubuntu saucy contrib
+# deb https://packages.erlang-solutions.com/ubuntu precise contrib
+# 
+# To verify which distribution you are running, run lsb_release -c in console.
+# 
+# Next, add the Erlang Solutions public key for apt-secure using following commands:
+# 
+# wget https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
+# sudo apt-key add erlang_solutions.asc
