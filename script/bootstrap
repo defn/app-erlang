@@ -6,10 +6,10 @@ function bootstrap {
 
   case "$(uname -s)" in
     Linux)
-      wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+      wget -nc https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
       sudo dpkg -i erlang-solutions_1.0_all.deb
       sudo aptitude update
-			sudo aptitude install -t erlang erlang-base-hipe
+			sudo aptitude install -y erlang erlang-base-hipe
       ;;
     Darwin)
       block compile dmg 'https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_2_esl/esl-erlang_18.2-1~osx~10.10_amd64.dmg' \
