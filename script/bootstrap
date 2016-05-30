@@ -4,18 +4,19 @@ function bootstrap {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
-  pkg ensure lang/erlang
-
   case "$(uname -s)" in
     Linux)
       sudo apt-key add "$shome/etc/erlang.gpg"
+			echo 'deb https://packages.erlang-solutions.com/ubuntu trusty contrib' | sudo tee /etc/apt/sources.list.d/erlang.list
+      sudo aptitude update
+			sudo aptitude install -t erlang-solutions
+			sudo aptitude install -t erlang erlang-base-hipe
+      ;;
+    Darwin)
+      block compile dmg 'https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_2_esl/esl-erlang_18.2-1~osx~10.10_amd64.dmg'
+        'Erlang' 'EslErlang 18.2-1.pkg'
       ;;
   esac
 }
 
 bootstrap
-
-# https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_2_esl/esl-erlang_18.2-1~osx~10.10_amd64.dmg
-# https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_2_esl/esl-erlang_18.2-2~ubuntu~precise_amd64.deb
-# 
-# deb https://packages.erlang-solutions.com/ubuntu trusty contrib
