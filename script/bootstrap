@@ -13,7 +13,7 @@ function bootstrap {
 			sudo aptitude install -t erlang erlang-base-hipe
       ;;
     Darwin)
-      block compile dmg 'https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_2_esl/esl-erlang_18.2-1~osx~10.10_amd64.dmg'
+      block compile dmg 'https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_2_esl/esl-erlang_18.2-1~osx~10.10_amd64.dmg' \
         'Erlang' 'EslErlang 18.2-1.pkg'
       ;;
   esac
