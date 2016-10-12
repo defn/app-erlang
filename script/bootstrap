@@ -4,18 +4,7 @@ function bootstrap {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  case "$(uname -s)" in
-    Linux)
-      wget -nc https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
-      sudo dpkg -i erlang-solutions_1.0_all.deb
-      sudo aptitude update
-			sudo aptitude install -y erlang erlang-base-hipe
-      ;;
-    Darwin)
-      block compile dmg 'https://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_2_esl/esl-erlang_18.2-1~osx~10.10_amd64.dmg' \
-        'Erlang' 'EslErlang 18.2-1.pkg'
-      ;;
-  esac
+  pkg ensure lang/erlang
 }
 
 bootstrap
