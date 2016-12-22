@@ -4,11 +4,11 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  if [[ -x "$(type -P erl)" ]]; then
+  if [[ "$($shome/script/version | jq -r '.erlang')" != "$ERLANG_VERSION" ]]; then
     return 1
-  else
-    return 0
   fi
+
+  return 0
 }
 
 source sub "$0" "$@"

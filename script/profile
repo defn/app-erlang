@@ -3,6 +3,8 @@
 function profile {
   local shome="${_erlang_home:-"$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
   PATH="$shome/bin:$PATH"
+
+  ERLANG_VERSION='19.0'
 }
 
 profile
